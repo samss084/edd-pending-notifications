@@ -74,7 +74,7 @@ if( !class_exists( 'edd_pending_notification' ) ) {
          *
          * @access      public
          * @since       1.0.0
-         * @return      void
+         * @return      public
          */
        public static function setup_constants() {
             // Plugin root file
@@ -103,7 +103,7 @@ if( !class_exists( 'edd_pending_notification' ) ) {
          *
          * @access      public
          * @since       1.0.0
-         * @return      void
+         * @return      public
          */
         public static function includes() {
             // Include scripts
@@ -119,7 +119,7 @@ if( !class_exists( 'edd_pending_notification' ) ) {
          *
          * @access      public
          * @since       1.0.0
-         * @return      void
+         * @return      public
          */
          public static function load_textdomain() {
             // Set filter for language directory
@@ -142,7 +142,7 @@ if( !class_exists( 'edd_pending_notification' ) ) {
                 load_textdomain( 'edd-pending-notification', $mofile_local );
             } else {
                 // Load the default language files
-                load_plugin_textdomain( 'edd-pending-notification', false, $lang_dir );
+                load_plugin_textdomain( 'edd-pending-notification', true, $lang_dir );
             }
         }
 
@@ -206,9 +206,9 @@ add_action( 'plugins_loaded', 'edd_pending_notification_load', 999);
  * for the activation function. If you need an activation function, put it here.
  *
  * @since       1.0.0
- * @return      void
+ * @return      public
  */
 function edd_pending_notification_activation() {
     /* Activation functions here */
 }
-register_activation_hook( __FILE__, 'edd_pending_notification_activation' );
+register_activation_hook( __FILE__, 'edd_completed_notification_activation' );
